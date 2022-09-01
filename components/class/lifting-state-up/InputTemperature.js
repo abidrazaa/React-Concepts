@@ -17,9 +17,7 @@ class InputTemperature extends React.Component{
             <View>
                 <TextInput 
                     value={(this.props.temperature).toString()}
-                    // onChange = {this.handleChange(e)}
                     onChangeText={text => this.handleChange(text)}
-
                 />
                 <Text>The temperature is {this.props.temperature}</Text>
             </View>
