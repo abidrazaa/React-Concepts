@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { View, Text, Image, ScrollView, SafeAreaView, TouchableOpacity, StyleSheet } from "react-native"
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
-
-
+import { UserContext } from "../../../Routes/Routes";
 const Users = ({users, deleteUser}) => {
+
+    // using the context passed from the HomeScreen 
+    // Using email as authToken
+    const {authToken, setAuthToken} = useContext(UserContext)
 
     return(
         <SafeAreaView style={styles.screen}>
             <ScrollView>
                 <View style={{width:"100%", alignItems : "center"}}>
                     <Text style={styles.heading}>Github Users</Text>
+                    <Text style={styles.heading}>{authToken}</Text>
                    
                         {
                             users.map((u, i) => {

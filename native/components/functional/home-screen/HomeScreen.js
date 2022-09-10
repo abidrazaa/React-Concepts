@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { StyleSheet, View, Text, Button, TextInput, SafeAreaView } from "react-native"
 import parseErrorStack from "react-native/Libraries/Core/Devtools/parseErrorStack";
-
+import { UserContext } from "../../../Routes/Routes";
 const HomeScreen = ({navigation }) => {
 
 
@@ -9,14 +9,19 @@ const HomeScreen = ({navigation }) => {
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
 
+    // Using the user context
+    const {authToken, setAuthToken} = useContext(UserContext)
 
     const handleGithubNavigation = () => {
         
         if(!email.includes("@") || !name) return setEmailError(true)
+        // setting auth token in user context 
+        setAuthToken(email)
         return navigation.navigate('Users')
     }
 
     return (
+
         <View style={styles.screen}>
             <Text>This is the home Screen</Text>
             <SafeAreaView>
