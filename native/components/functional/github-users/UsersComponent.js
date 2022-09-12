@@ -13,7 +13,7 @@ const Users = ({users, deleteUser}) => {
             <ScrollView>
                 <View style={{width:"100%", alignItems : "center"}}>
                     <Text style={styles.heading}>Github Users</Text>
-                    <Text style={styles.heading}>{authToken}</Text>
+                    <Text style={styles.heading}>Welcome {authToken} !!</Text>
                    
                         {
                             users.map((u, i) => {

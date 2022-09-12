@@ -24,6 +24,7 @@ const GithubUsers = () => {
         setUsers(filteredUsers)
     }
 
+    // This will only run when the screen renders
     useEffect(() => {
         getUsersFromGithub()
     },[])

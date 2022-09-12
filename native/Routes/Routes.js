@@ -4,12 +4,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GithubUsers from '../components/functional/github-users/GithubUsers';
 import HomeScreen from '../components/functional/home-screen/HomeScreen';
 import { useRef, useState, createContext} from "react";
+import CreditBookUsers from '../components/functional/creditbook-users/CreditBookUsers';
+
 
 const Stack = createNativeStackNavigator();
 export const UserContext = createContext(null);
 const MyStack = () => {
-  const [authToken, setAuthToken] = useState("first")
+
+  // passing empty string from UserContext that will be updated on HomeScreen
+  // This could be used throughout the app as all the components are encapsulated in UserContext
+  const [authToken, setAuthToken] = useState("")
+
   return (
+    // Passing setAuthToken in value so that it can be modified from Login/HomeScreen
     <UserContext.Provider value={{authToken, setAuthToken}}>
       <NavigationContainer>
         <Stack.Navigator>
@@ -17,7 +24,17 @@ const MyStack = () => {
             name="Home"
             component={HomeScreen}
           />
-          <Stack.Screen name="Users" component={GithubUsers} />
+          <Stack.Screen name="Github Users" component={GithubUsers} />
+          <Stack.Screen 
+            name="Students" 
+            component={CreditBookUsers} 
+            options={{
+              // headerTitle: (props) => <LogoTitle {...props} />,
+              // headerRight: () => (
+              //   <RightHeaderButton />
+              // ),
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
