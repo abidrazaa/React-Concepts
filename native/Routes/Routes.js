@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import GithubUsers from '../components/functional/github-users/GithubUsers';
-import HomeScreen from '../components/functional/home-screen/HomeScreen';
+import GithubUsers from '../components/github-users/GithubUsers';
+import HomeScreen from '../components/home-screen/HomeScreen';
 import { useRef, useState, createContext} from "react";
-import CreditBookUsers from '../components/functional/creditbook-users/CreditBookUsers';
+import CreditBookUsers from '../components/creditbook-users/CreditBookUsers';
 
 
 const Stack = createNativeStackNavigator();
@@ -24,16 +24,13 @@ const MyStack = () => {
             name="Home"
             component={HomeScreen}
           />
-          <Stack.Screen name="Github Users" component={GithubUsers} />
+          <Stack.Screen 
+            name="Github Users" 
+            component={GithubUsers} 
+          />
           <Stack.Screen 
             name="Students" 
             component={CreditBookUsers} 
-            options={{
-              // headerTitle: (props) => <LogoTitle {...props} />,
-              // headerRight: () => (
-              //   <RightHeaderButton />
-              // ),
-            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

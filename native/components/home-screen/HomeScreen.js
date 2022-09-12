@@ -1,7 +1,8 @@
 import { useContext, useRef, useState } from "react";
 import { StyleSheet, View, Text, Image, TextInput, SafeAreaView, Touchable, TouchableOpacity } from "react-native"
 import parseErrorStack from "react-native/Libraries/Core/Devtools/parseErrorStack";
-import { UserContext } from "../../../Routes/Routes";
+import { UserContext } from "../../Routes/Routes";
+import FormikForm from "../creditbook-users/FormikForm";
 
 
 const HomeScreen = ({navigation}) => {
@@ -34,7 +35,7 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.screen}>
             <Image
                 resizeMode="cover"
-                source={require('../../../assets/creditbook.png')}
+                source={require('../../assets/creditbook.png')}
                 style = {styles.image}
             />
             {/* <Text>This is the home Screen</Text> */}
@@ -63,7 +64,6 @@ const HomeScreen = ({navigation}) => {
             </SafeAreaView>
             {emailError ? <Text style={{color:"red", justifyContent:"center",alignItems:"center"}}>Please enter your name</Text> : <></>}
 
-            
             <TouchableOpacity
                 style={styles.myButton}
                 onPress={handleGithubNavigation}
@@ -86,14 +86,6 @@ const styles = StyleSheet.create({
         justifyContent : "center",
         alignItems : "center"
     },
-    // input: {
-    //     height: 40,
-    //     margin: 12,
-    //     width : 200,
-    //     borderWidth: 1,
-    //     padding: 10,
-    // },
-
     myButton : {
         margin : 15,
         width : 200,

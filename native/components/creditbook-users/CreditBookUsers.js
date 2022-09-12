@@ -13,8 +13,6 @@ const CreditBookUsers = ({navigation}) => {
     ]
     const [users, setUsers] = useState(tempUsers)
     const [modalVisible, setModalVisible] = useState(false);
-    const [name, setName] = useState(null)
-    const [age, setAge] = useState(null)
     const [error, setError] = useState(false)
     const [checked, setChecked] = useState({});
 
@@ -31,18 +29,6 @@ const CreditBookUsers = ({navigation}) => {
         setModalVisible(true)
     }
 
-    const handleFormSubmit = () => {
-        if(!name || !age) return setError(true)
-        var newId = 0;
-        if(users.length){
-            newId = parseInt(users[users.length - 1].id)+1
-        }
-        users.push({id : newId ,name, age})
-        setModalVisible(!modalVisible)
-        setName("")
-        setAge("")
-    }
-
     return(
         <SafeAreaView style={styles.screen}>
             <ScrollView>
@@ -52,6 +38,7 @@ const CreditBookUsers = ({navigation}) => {
                         <Text style={styles.heading}>List of Students</Text>
                         <RightHeaderButton handleAddUser={handleAddUser} />
                     </View>
+
                     <View style={styles.body}>
                         {
                             users.length == 0 
@@ -70,15 +57,11 @@ const CreditBookUsers = ({navigation}) => {
                     <AddUserModal 
                         modalVisible={modalVisible}
                         setModalVisible={setModalVisible}
-                        name={name}
-                        setName={setName}
-                        handleFormSubmit={handleFormSubmit}
-                        age={age}
-                        setAge={setAge}
                         error={error}
                         setError={setError}
+                        users={users}
                     />
-
+                    
                 </View>
             </ScrollView>
         </SafeAreaView>

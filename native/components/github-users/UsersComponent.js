@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { View, Text, Image, ScrollView, SafeAreaView, TouchableOpacity, StyleSheet } from "react-native"
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
-import { UserContext } from "../../../Routes/Routes";
+import { UserContext } from "../../Routes/Routes";
 const Users = ({users, deleteUser}) => {
 
     // using the context passed from the HomeScreen 
@@ -14,7 +14,6 @@ const Users = ({users, deleteUser}) => {
                 <View style={{width:"100%", alignItems : "center"}}>
                     <Text style={styles.heading}>Github Users</Text>
                     <Text style={styles.heading}>Welcome {authToken} !!</Text>
-                   
                         {
                             users.map((u, i) => {
                             return (
