@@ -1,0 +1,3 @@
+Steps to add Redux in React app:
+    * Install redux ==> npm install react-redux
+    * create folder "redux" .. make nested folders "actions", "reducers" and file "store.js"

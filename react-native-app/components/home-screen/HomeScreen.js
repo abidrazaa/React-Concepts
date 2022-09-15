@@ -1,8 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { StyleSheet, View, Text, Image, TextInput, SafeAreaView, Touchable, TouchableOpacity } from "react-native"
-import parseErrorStack from "react-native/Libraries/Core/Devtools/parseErrorStack";
 import { UserContext } from "../../Routes/Routes";
-import FormikForm from "../creditbook-users/FormikForm";
+import Counter from "../counter/Counter";
 
 
 const HomeScreen = ({navigation}) => {
@@ -38,7 +37,9 @@ const HomeScreen = ({navigation}) => {
                 source={require('../../assets/creditbook.png')}
                 style = {styles.image}
             />
-            {/* <Text>This is the home Screen</Text> */}
+
+            <Counter />
+
             <SafeAreaView>
                 <TextInput
                     style={styles.input}

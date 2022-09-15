@@ -5,6 +5,7 @@ import GithubUsers from '../components/github-users/GithubUsers';
 import HomeScreen from '../components/home-screen/HomeScreen';
 import { useRef, useState, createContext} from "react";
 import CreditBookUsers from '../components/creditbook-users/CreditBookUsers';
+import Counter from '../components/counter/Counter';
 
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,10 @@ const MyStack = () => {
           <Stack.Screen 
             name="Students" 
             component={CreditBookUsers} 
+          />
+          <Stack.Screen 
+            name="Counter" 
+            component={Counter} 
           />
         </Stack.Navigator>
       </NavigationContainer>

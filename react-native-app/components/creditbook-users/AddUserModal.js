@@ -1,7 +1,10 @@
-import {StyleSheet, View, Modal } from "react-native"
+import {StyleSheet, View, Modal, Text } from "react-native"
+import { useSelector } from "react-redux";
 import FormikForm from "./FormikForm";
 
 const AddUserModal = ({modalVisible, setModalVisible, error, setError, users}) => {
+
+    const store = useSelector((state) => state.updateCount)
     return(
         <View style={styles.centeredView}>
             <Modal
@@ -15,6 +18,8 @@ const AddUserModal = ({modalVisible, setModalVisible, error, setError, users}) =
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
 
+                        <Text> Welcome {store.name} {store.count} times !!</Text>
+
                         <FormikForm 
                             error={error} 
                             setError={setError} 
@@ -22,7 +27,6 @@ const AddUserModal = ({modalVisible, setModalVisible, error, setError, users}) =
                             modalVisible={modalVisible}
                             setModalVisible={setModalVisible}
                         />
-
                     </View>
                 </View>
             </Modal>
