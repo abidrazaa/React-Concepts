@@ -16,10 +16,11 @@ const HomeScreen = ({navigation}) => {
     const handleGithubNavigation = () => {
         
         // if(!email.includes("@") || !name) return setEmailError(true)
-        // setting email as auth token in user context 
-        // setAuthToken is basically a function that is coming from UserContext as a prop
 
         if(!name) return setEmailError(true)
+
+        // setting name as auth token in user context 
+        // setAuthToken is basically a function that is coming from UserContext as a prop
         setAuthToken(name)
 
         return navigation.navigate('Github Users')
